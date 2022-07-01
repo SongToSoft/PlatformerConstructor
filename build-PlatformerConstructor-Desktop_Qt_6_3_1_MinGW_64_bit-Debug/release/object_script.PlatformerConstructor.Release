@@ -1,0 +1,12 @@
+release/NodeManager.o
+release/PCNode.o
+release/Player.o
+release/SpriteComponent.o
+release/Stairway.o
+release/TransformComponent.o
+release/Wall.o
+release/hierarchywindow.o
+release/main.o
+release/mainwindow.o
+release/moc_hierarchywindow.o
+release/moc_mainwindow.o

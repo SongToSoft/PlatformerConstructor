@@ -9,19 +9,30 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    NodeManager.cpp \
     PCNode.cpp \
+    Player.cpp \
     SpriteComponent.cpp \
+    Stairway.cpp \
     TransformComponent.cpp \
+    Wall.cpp \
+    hierarchywindow.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    NodeManager.h \
     PCNode.h \
+    Player.h \
     SpriteComponent.h \
+    Stairway.h \
     TransformComponent.h \
+    Wall.h \
+    hierarchywindow.h \
     mainwindow.h
 
 FORMS += \
+    hierarchywindow.ui \
     mainwindow.ui
 
 # Default rules for deployment.

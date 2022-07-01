@@ -6,17 +6,19 @@
 
 class PCNode {
 public:
-    PCNode();
-    ~PCNode();
+     PCNode(QWidget *_parent, const std::string& _path = "");
+    virtual ~PCNode();
 
-    void update();
+    virtual void update();
     void draw();
 
+    std::string getId();
     TransformComponent* getTransformComponent();
     SpriteComponent* getSpriteComponent();
-private:
-    TransformComponent* transformComponent;
-    SpriteComponent* spriteComponent;
+protected:
+    TransformComponent *transformComponent;
+    SpriteComponent *spriteComponent;
+    std::string id;
 };
 
 #endif // PCNODE_H

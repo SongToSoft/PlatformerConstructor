@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HierarchyWindow</class>
+ <widget class="QDialog" name="HierarchyWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>738</width>
+    <height>555</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Hierarchy</string>
+  </property>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>11</y>
+     <width>301</width>
+     <height>531</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="HierarchyLayout"/>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>10</y>
+     <width>371</width>
+     <height>531</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="14" column="1">
+     <widget class="QPushButton" name="saveButton">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
+    <item row="14" column="0">
+     <widget class="QPushButton" name="deleteButton">
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="NodeNameLabel">
+      <property name="text">
+       <string>NodeName</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QLabel" name="TransformComponent">
+      <property name="text">
+       <string>TransformComponent</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="positionXLabel">
+      <property name="text">
+       <string>PositionX</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="positionXLineEdit"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="positionYLabel">
+      <property name="text">
+       <string>PositionY</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="positionYLineEdit"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="sizeXLabel">
+      <property name="text">
+       <string>SizeX</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="sizeXLineEdit"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="sizeYLabel">
+      <property name="text">
+       <string>SizeY</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="sizeYLineEdit"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="scaleXLabel">
+      <property name="text">
+       <string>ScaleX</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLineEdit" name="scaleXLineEdit"/>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="scaleYLabel">
+      <property name="text">
+       <string>ScaleY</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="scaleYLineEdit"/>
+    </item>
+    <item row="8" column="0" colspan="2">
+     <widget class="QLabel" name="SpriteComponent">
+      <property name="text">
+       <string>SpriteComponent</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

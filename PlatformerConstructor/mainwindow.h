@@ -15,6 +15,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    //void ShowContextMenu(const QPoint& pos);
 private:
     Ui::MainWindow *ui;
 };

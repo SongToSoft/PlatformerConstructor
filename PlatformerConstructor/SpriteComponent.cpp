@@ -1,17 +1,33 @@
 #include "SpriteComponent.h"
 
-SpriteComponent::SpriteComponent() {
+SpriteComponent::SpriteComponent(QWidget *_parent) {
+    parent = _parent;
+    label = new QLabel(parent);
+    //label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    //label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+    label->show();
 }
 
 SpriteComponent::~SpriteComponent() {
-
+    delete label;
 }
 
-QImage SpriteComponent::getImage() {
+QPixmap SpriteComponent::getImage() {
     return image;
 }
 
-void SpriteComponent::setImage(QImage _image) {
-    image = _image;
+QLabel* SpriteComponent::getLabel() {
+    return label;
 }
 
+void SpriteComponent::setImage(QPixmap _image) {
+    image = _image;
+    label->setPixmap(image);
+    label->setScaledContents(true);
+}
+
+void SpriteComponent::setImage(const std::string& _path) {
+    image = QPixmap(_path.c_str());
+    label->setPixmap(image);
+    label->setScaledContents(true);
+}
