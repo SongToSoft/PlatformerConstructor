@@ -1,17 +1,39 @@
 #include "hierarchywindow.h"
 #include "ui_hierarchywindow.h"
 
-#include <NodeManager.h>
 #include <QPushButton>
+#include <QMenu>
+
+#include <NodeManager.h>
 #include <iostream>
+#include <Player.h>
+#include <Wall.h>
+#include <Stairway.h>
 
 HierarchyWindow::HierarchyWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::HierarchyWindow)
 {
     ui->setupUi(this);
+    ui->HierarchyLayout->setAlignment(Qt::AlignTop);
     clearNodes();
     addNodes();
+
+    QMenu *menu = new QMenu(this);
+    menu->addAction("Add Player", [this]() {
+        std::cout << "Add Player" << std::endl;
+        createNode(ENodeType::PLAYER);
+    });
+    menu->addAction("Add Wall", [this]() {
+        std::cout << "Add Wall" << std::endl;
+        createNode(ENodeType::WALL);
+    });
+    menu->addAction("Add Stairway", [this]() {
+        std::cout << "Add Stairway" << std::endl;
+        createNode(ENodeType::STAIRWAY);
+    });
+
+    ui->createButton->setMenu(menu);
 }
 
 void HierarchyWindow::addNodes() {
@@ -21,7 +43,7 @@ void HierarchyWindow::addNodes() {
         QPushButton *nodeButton = new QPushButton(this);
         nodeButton->setText(node->getId().c_str());
         nodeButton->show();
-        ui->HierarchyLayout->addWidget(nodeButton, 0, Qt::AlignLeft | Qt::AlignTop);
+        ui->HierarchyLayout->addWidget(nodeButton, 0, Qt::AlignTop);
         connect(nodeButton, &QPushButton::clicked, [&, node]() {
             onNodeButtonClick(node);
         });
@@ -41,10 +63,21 @@ void HierarchyWindow::clearNodes() {
 
     ui->scaleXLineEdit->setText(0);
     ui->scaleYLineEdit->setText(0);
+
+    ui->imagePathLineEdit->setText(0);
+
+    ui->specialParameterLabel->setText("SpecialParameter");
+    ui->specialParameterLineEdit->setText(0);
 }
 
 void HierarchyWindow::onNodeButtonClick(PCNode* node) {
     std::cout << "Click on button: " << node->getId() << std::endl;
+    auto nodes = NodeManager::getInstance()->getNodes();
+    for (const auto& item : nodes) {
+        item->getSpriteComponent()->highlight(false);
+    }
+    node->getSpriteComponent()->highlight(true);
+
     ui->NodeNameLabel->setText(node->getId().c_str());
 
     ui->positionXLineEdit->setText(std::to_string(node->getTransformComponent()->getPosition().x()).c_str());
@@ -55,6 +88,34 @@ void HierarchyWindow::onNodeButtonClick(PCNode* node) {
 
     ui->scaleXLineEdit->setText(std::to_string(node->getTransformComponent()->getScale().x()).c_str());
     ui->scaleYLineEdit->setText(std::to_string(node->getTransformComponent()->getScale().y()).c_str());
+
+    ui->imagePathLineEdit->setText(node->getSpriteComponent()->getPath().c_str());
+
+    switch (node->getNodeType()) {
+    case ENodeType::PLAYER: {
+        if (auto player = (dynamic_cast<Player*>(node))) {
+            ui->specialParameterLabel->setText("Player Speed");
+            ui->specialParameterLineEdit->setText(std::to_string(player->getSpeed()).c_str());
+        }
+        break;
+    }
+    case ENodeType::WALL: {
+        if (auto wall = (dynamic_cast<Wall*>(node))) {
+            ui->specialParameterLabel->setText("Is Destructible");
+            ui->specialParameterLineEdit->setText(std::to_string(wall->isDestructible()).c_str());
+        }
+        break;
+    }
+    case ENodeType::STAIRWAY: {
+        if (auto stairway = (dynamic_cast<Stairway*>(node))) {
+            ui->specialParameterLabel->setText("Climb Speed");
+            ui->specialParameterLineEdit->setText(std::to_string(stairway->getClimbSpeed()).c_str());
+        }
+        break;
+    }
+    default:
+        break;
+    }
 
     disconnect(ui->deleteButton, 0, 0, 0);
     connect(ui->deleteButton, &QPushButton::clicked, [this, node]() {
@@ -86,7 +147,39 @@ void HierarchyWindow::saveNode(PCNode* node) {
 
     node->getTransformComponent()->setScale({ ui->scaleXLineEdit->text().toFloat(),
                                               ui->scaleYLineEdit->text().toFloat()});
+
+    node->getSpriteComponent()->setImage(ui->imagePathLineEdit->text());
+
+    switch (node->getNodeType()) {
+    case ENodeType::PLAYER: {
+        if (auto player = (dynamic_cast<Player*>(node))) {
+            player->setSpeed(ui->specialParameterLineEdit->text().toFloat());
+        }
+        break;
+    }
+    case ENodeType::WALL: {
+        if (auto wall = (dynamic_cast<Wall*>(node))) {
+            wall->setDestructible(ui->specialParameterLineEdit->text().toFloat() != 0.f);
+        }
+        break;
+    }
+    case ENodeType::STAIRWAY: {
+        if (auto stairway = (dynamic_cast<Stairway*>(node))) {
+            stairway->setClimbSpeed(ui->specialParameterLineEdit->text().toFloat());
+        }
+        break;
+    }
+    default:
+        break;
+    }
+
     NodeManager::getInstance()->draw();
+}
+
+void HierarchyWindow::createNode(ENodeType nodeType) {
+    NodeManager::getInstance()->createNode(nodeType);
+    clearNodes();
+    addNodes();
 }
 
 HierarchyWindow::~HierarchyWindow() {

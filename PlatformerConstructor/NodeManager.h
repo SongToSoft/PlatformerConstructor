@@ -3,18 +3,13 @@
 
 #include <PCNode.h>
 
-enum ENodeType {
-    PLAYER,
-    WALL,
-    STAIRWAY
-};
-
 class NodeManager {
 public:
     static NodeManager* getInstance();
+    static void setParent(QWidget* _parent);
 
     void addNode(PCNode* _node);
-    void createNode(QWidget* _parent, ENodeType _type);
+    void createNode(ENodeType _type);
     void deleteNode(PCNode* node);
     std::vector<PCNode*> getNodes();
 
@@ -26,6 +21,7 @@ private:
     ~NodeManager();
 
     std::vector<PCNode*> nodes;
+    static QWidget *parent;
     static NodeManager* instance;
 };
 

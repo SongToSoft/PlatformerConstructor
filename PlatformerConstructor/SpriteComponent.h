@@ -11,13 +11,17 @@ public:
 
     QPixmap getImage();
     QLabel* getLabel();
+    std::string getPath();
 
     void setImage(QPixmap _image);
     void setImage(const std::string& _path);
+
+    void highlight(bool _highlight);
 private:
     QPixmap image;
     QLabel *label;
     QWidget *parent;
+    std::string path;
 };
 
 

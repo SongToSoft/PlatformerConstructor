@@ -6,48 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>738</width>
-    <height>555</height>
+    <width>701</width>
+    <height>528</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Hierarchy</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>11</y>
-     <width>301</width>
-     <height>531</height>
+     <x>40</x>
+     <y>50</y>
+     <width>141</width>
+     <height>451</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="HierarchyLayout"/>
+   <layout class="QVBoxLayout" name="HierarchyLayout">
+    <property name="spacing">
+     <number>2</number>
+    </property>
+   </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>200</x>
      <y>10</y>
-     <width>371</width>
-     <height>531</height>
+     <width>441</width>
+     <height>491</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
-    <item row="14" column="1">
-     <widget class="QPushButton" name="saveButton">
-      <property name="text">
-       <string>Save</string>
-      </property>
-     </widget>
-    </item>
-    <item row="14" column="0">
-     <widget class="QPushButton" name="deleteButton">
-      <property name="text">
-       <string>Delete</string>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0" colspan="2">
      <widget class="QLabel" name="NodeNameLabel">
       <property name="text">
@@ -129,7 +119,61 @@
       </property>
      </widget>
     </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="imagePathLabel">
+      <property name="text">
+       <string>ImagePath</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QLineEdit" name="imagePathLineEdit"/>
+    </item>
+    <item row="10" column="0" colspan="2">
+     <widget class="QLabel" name="ClassParameters">
+      <property name="text">
+       <string>ClassParameters</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="0">
+     <widget class="QLabel" name="specialParameterLabel">
+      <property name="text">
+       <string>SpecialParameter</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="1">
+     <widget class="QLineEdit" name="specialParameterLineEdit"/>
+    </item>
+    <item row="15" column="0">
+     <widget class="QPushButton" name="deleteButton">
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+    </item>
+    <item row="15" column="1">
+     <widget class="QPushButton" name="saveButton">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="createButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>10</y>
+     <width>141</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Create</string>
+   </property>
   </widget>
  </widget>
  <resources/>

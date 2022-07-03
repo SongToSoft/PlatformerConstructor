@@ -1,4 +1,4 @@
-#include "TransformComponent.h"
+#include <TransformComponent.h>
 
 TransformComponent::TransformComponent() {
     position = {0, 0};
@@ -31,4 +31,21 @@ void TransformComponent::setScale(QVector2D _scale) {
 
 void TransformComponent::setSize(QVector2D _size) {
     size = _size;
+}
+
+QJsonObject TransformComponent::serialize() {
+    QJsonObject json;
+    json["positionX"] = position.x();
+    json["positionY"] = position.y();
+
+    json["sizeX"] = size.x();
+    json["sizeY"] = size.y();
+
+    json["scaleX"] = scale.x();
+    json["scaleY"] = scale.y();
+    return json;
+}
+
+void TransformComponent::deserialize() {
+
 }

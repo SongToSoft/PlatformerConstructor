@@ -24,12 +24,10 @@ QT_BEGIN_NAMESPACE
 class Ui_HierarchyWindow
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *HierarchyLayout;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QFormLayout *formLayout;
-    QPushButton *saveButton;
-    QPushButton *deleteButton;
     QLabel *NodeNameLabel;
     QLabel *TransformComponent;
     QLabel *positionXLabel;
@@ -45,109 +43,146 @@ public:
     QLabel *scaleYLabel;
     QLineEdit *scaleYLineEdit;
     QLabel *SpriteComponent;
+    QLabel *imagePathLabel;
+    QLineEdit *imagePathLineEdit;
+    QLabel *ClassParameters;
+    QLabel *specialParameterLabel;
+    QLineEdit *specialParameterLineEdit;
+    QPushButton *deleteButton;
+    QPushButton *saveButton;
+    QPushButton *createButton;
 
     void setupUi(QDialog *HierarchyWindow)
     {
         if (HierarchyWindow->objectName().isEmpty())
             HierarchyWindow->setObjectName(QString::fromUtf8("HierarchyWindow"));
-        HierarchyWindow->resize(738, 555);
-        widget = new QWidget(HierarchyWindow);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(11, 11, 301, 531));
-        HierarchyLayout = new QVBoxLayout(widget);
+        HierarchyWindow->resize(701, 528);
+        layoutWidget = new QWidget(HierarchyWindow);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(40, 50, 141, 451));
+        HierarchyLayout = new QVBoxLayout(layoutWidget);
+        HierarchyLayout->setSpacing(2);
         HierarchyLayout->setObjectName(QString::fromUtf8("HierarchyLayout"));
         HierarchyLayout->setContentsMargins(0, 0, 0, 0);
-        widget1 = new QWidget(HierarchyWindow);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(350, 10, 371, 531));
-        formLayout = new QFormLayout(widget1);
+        layoutWidget1 = new QWidget(HierarchyWindow);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(200, 10, 441, 491));
+        formLayout = new QFormLayout(layoutWidget1);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
-        saveButton = new QPushButton(widget1);
-        saveButton->setObjectName(QString::fromUtf8("saveButton"));
-
-        formLayout->setWidget(14, QFormLayout::FieldRole, saveButton);
-
-        deleteButton = new QPushButton(widget1);
-        deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
-
-        formLayout->setWidget(14, QFormLayout::LabelRole, deleteButton);
-
-        NodeNameLabel = new QLabel(widget1);
+        NodeNameLabel = new QLabel(layoutWidget1);
         NodeNameLabel->setObjectName(QString::fromUtf8("NodeNameLabel"));
 
         formLayout->setWidget(0, QFormLayout::SpanningRole, NodeNameLabel);
 
-        TransformComponent = new QLabel(widget1);
+        TransformComponent = new QLabel(layoutWidget1);
         TransformComponent->setObjectName(QString::fromUtf8("TransformComponent"));
 
         formLayout->setWidget(1, QFormLayout::SpanningRole, TransformComponent);
 
-        positionXLabel = new QLabel(widget1);
+        positionXLabel = new QLabel(layoutWidget1);
         positionXLabel->setObjectName(QString::fromUtf8("positionXLabel"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, positionXLabel);
 
-        positionXLineEdit = new QLineEdit(widget1);
+        positionXLineEdit = new QLineEdit(layoutWidget1);
         positionXLineEdit->setObjectName(QString::fromUtf8("positionXLineEdit"));
 
         formLayout->setWidget(2, QFormLayout::FieldRole, positionXLineEdit);
 
-        positionYLabel = new QLabel(widget1);
+        positionYLabel = new QLabel(layoutWidget1);
         positionYLabel->setObjectName(QString::fromUtf8("positionYLabel"));
 
         formLayout->setWidget(3, QFormLayout::LabelRole, positionYLabel);
 
-        positionYLineEdit = new QLineEdit(widget1);
+        positionYLineEdit = new QLineEdit(layoutWidget1);
         positionYLineEdit->setObjectName(QString::fromUtf8("positionYLineEdit"));
 
         formLayout->setWidget(3, QFormLayout::FieldRole, positionYLineEdit);
 
-        sizeXLabel = new QLabel(widget1);
+        sizeXLabel = new QLabel(layoutWidget1);
         sizeXLabel->setObjectName(QString::fromUtf8("sizeXLabel"));
 
         formLayout->setWidget(4, QFormLayout::LabelRole, sizeXLabel);
 
-        sizeXLineEdit = new QLineEdit(widget1);
+        sizeXLineEdit = new QLineEdit(layoutWidget1);
         sizeXLineEdit->setObjectName(QString::fromUtf8("sizeXLineEdit"));
 
         formLayout->setWidget(4, QFormLayout::FieldRole, sizeXLineEdit);
 
-        sizeYLabel = new QLabel(widget1);
+        sizeYLabel = new QLabel(layoutWidget1);
         sizeYLabel->setObjectName(QString::fromUtf8("sizeYLabel"));
 
         formLayout->setWidget(5, QFormLayout::LabelRole, sizeYLabel);
 
-        sizeYLineEdit = new QLineEdit(widget1);
+        sizeYLineEdit = new QLineEdit(layoutWidget1);
         sizeYLineEdit->setObjectName(QString::fromUtf8("sizeYLineEdit"));
 
         formLayout->setWidget(5, QFormLayout::FieldRole, sizeYLineEdit);
 
-        scaleXLabel = new QLabel(widget1);
+        scaleXLabel = new QLabel(layoutWidget1);
         scaleXLabel->setObjectName(QString::fromUtf8("scaleXLabel"));
 
         formLayout->setWidget(6, QFormLayout::LabelRole, scaleXLabel);
 
-        scaleXLineEdit = new QLineEdit(widget1);
+        scaleXLineEdit = new QLineEdit(layoutWidget1);
         scaleXLineEdit->setObjectName(QString::fromUtf8("scaleXLineEdit"));
 
         formLayout->setWidget(6, QFormLayout::FieldRole, scaleXLineEdit);
 
-        scaleYLabel = new QLabel(widget1);
+        scaleYLabel = new QLabel(layoutWidget1);
         scaleYLabel->setObjectName(QString::fromUtf8("scaleYLabel"));
 
         formLayout->setWidget(7, QFormLayout::LabelRole, scaleYLabel);
 
-        scaleYLineEdit = new QLineEdit(widget1);
+        scaleYLineEdit = new QLineEdit(layoutWidget1);
         scaleYLineEdit->setObjectName(QString::fromUtf8("scaleYLineEdit"));
 
         formLayout->setWidget(7, QFormLayout::FieldRole, scaleYLineEdit);
 
-        SpriteComponent = new QLabel(widget1);
+        SpriteComponent = new QLabel(layoutWidget1);
         SpriteComponent->setObjectName(QString::fromUtf8("SpriteComponent"));
 
         formLayout->setWidget(8, QFormLayout::SpanningRole, SpriteComponent);
 
+        imagePathLabel = new QLabel(layoutWidget1);
+        imagePathLabel->setObjectName(QString::fromUtf8("imagePathLabel"));
+
+        formLayout->setWidget(9, QFormLayout::LabelRole, imagePathLabel);
+
+        imagePathLineEdit = new QLineEdit(layoutWidget1);
+        imagePathLineEdit->setObjectName(QString::fromUtf8("imagePathLineEdit"));
+
+        formLayout->setWidget(9, QFormLayout::FieldRole, imagePathLineEdit);
+
+        ClassParameters = new QLabel(layoutWidget1);
+        ClassParameters->setObjectName(QString::fromUtf8("ClassParameters"));
+
+        formLayout->setWidget(10, QFormLayout::SpanningRole, ClassParameters);
+
+        specialParameterLabel = new QLabel(layoutWidget1);
+        specialParameterLabel->setObjectName(QString::fromUtf8("specialParameterLabel"));
+
+        formLayout->setWidget(11, QFormLayout::LabelRole, specialParameterLabel);
+
+        specialParameterLineEdit = new QLineEdit(layoutWidget1);
+        specialParameterLineEdit->setObjectName(QString::fromUtf8("specialParameterLineEdit"));
+
+        formLayout->setWidget(11, QFormLayout::FieldRole, specialParameterLineEdit);
+
+        deleteButton = new QPushButton(layoutWidget1);
+        deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
+
+        formLayout->setWidget(15, QFormLayout::LabelRole, deleteButton);
+
+        saveButton = new QPushButton(layoutWidget1);
+        saveButton->setObjectName(QString::fromUtf8("saveButton"));
+
+        formLayout->setWidget(15, QFormLayout::FieldRole, saveButton);
+
+        createButton = new QPushButton(HierarchyWindow);
+        createButton->setObjectName(QString::fromUtf8("createButton"));
+        createButton->setGeometry(QRect(40, 10, 141, 29));
 
         retranslateUi(HierarchyWindow);
 
@@ -157,8 +192,6 @@ public:
     void retranslateUi(QDialog *HierarchyWindow)
     {
         HierarchyWindow->setWindowTitle(QCoreApplication::translate("HierarchyWindow", "Hierarchy", nullptr));
-        saveButton->setText(QCoreApplication::translate("HierarchyWindow", "Save", nullptr));
-        deleteButton->setText(QCoreApplication::translate("HierarchyWindow", "Delete", nullptr));
         NodeNameLabel->setText(QCoreApplication::translate("HierarchyWindow", "NodeName", nullptr));
         TransformComponent->setText(QCoreApplication::translate("HierarchyWindow", "TransformComponent", nullptr));
         positionXLabel->setText(QCoreApplication::translate("HierarchyWindow", "PositionX", nullptr));
@@ -168,6 +201,12 @@ public:
         scaleXLabel->setText(QCoreApplication::translate("HierarchyWindow", "ScaleX", nullptr));
         scaleYLabel->setText(QCoreApplication::translate("HierarchyWindow", "ScaleY", nullptr));
         SpriteComponent->setText(QCoreApplication::translate("HierarchyWindow", "SpriteComponent", nullptr));
+        imagePathLabel->setText(QCoreApplication::translate("HierarchyWindow", "ImagePath", nullptr));
+        ClassParameters->setText(QCoreApplication::translate("HierarchyWindow", "ClassParameters", nullptr));
+        specialParameterLabel->setText(QCoreApplication::translate("HierarchyWindow", "SpecialParameter", nullptr));
+        deleteButton->setText(QCoreApplication::translate("HierarchyWindow", "Delete", nullptr));
+        saveButton->setText(QCoreApplication::translate("HierarchyWindow", "Save", nullptr));
+        createButton->setText(QCoreApplication::translate("HierarchyWindow", "Create", nullptr));
     } // retranslateUi
 
 };

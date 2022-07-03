@@ -1,6 +1,8 @@
 #include <PCNode.h>
 #include <QRect>
 #include <iostream>
+#include <QJsonObject>
+#include <QFile>
 
 PCNode::PCNode(QWidget* _parent, const std::string& _path) {
     transformComponent = new TransformComponent();
@@ -8,6 +10,7 @@ PCNode::PCNode(QWidget* _parent, const std::string& _path) {
     if (!_path.empty()) {
         spriteComponent->setImage(_path);
     }
+    nodeType = ENodeType::NODE;
 }
 
 PCNode::~PCNode() {
@@ -32,10 +35,27 @@ std::string PCNode::getId() {
     return id;
 }
 
+ENodeType PCNode::getNodeType() {
+    return nodeType;
+}
+
 TransformComponent* PCNode::getTransformComponent() {
     return transformComponent;
 }
 
 SpriteComponent* PCNode::getSpriteComponent() {
     return spriteComponent;
+}
+
+void PCNode::serialize() {
+    QJsonObject jsonObject;
+    jsonObject["TransformComponent"] = transformComponent->serialize();
+
+    //QFile jsonFile("PCNode.json");
+    //jsonFile.open(QFile::WriteOnly);
+    //jsonFile.write(jsonObject);
+}
+
+void PCNode::deserialize() {
+
 }

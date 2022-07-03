@@ -6,6 +6,9 @@
 class Player : public PCNode {
 public:
     Player(QWidget *_parent, const std::string& _path = "../Sprites/player.png");
+
+    float getSpeed();
+    void setSpeed(float _speed);
 private:
     float speed;
 };

@@ -5,6 +5,7 @@
 #include <Wall.h>
 
 NodeManager* NodeManager::instance = nullptr;
+QWidget* NodeManager::parent = nullptr;
 
 NodeManager* NodeManager::getInstance() {
     if (!instance) {
@@ -13,24 +14,30 @@ NodeManager* NodeManager::getInstance() {
     return instance;
 }
 
-void NodeManager::addNode(PCNode* _node) {
-    nodes.push_back(_node);
+void NodeManager::setParent(QWidget* _parent) {
+    parent = _parent;
 }
 
-void NodeManager::createNode(QWidget* _parent, ENodeType _type) {
+void NodeManager::addNode(PCNode* _node) {
+    nodes.push_back(_node);
+    draw();
+}
+
+void NodeManager::createNode(ENodeType _type) {
     PCNode *node;
     switch(_type) {
     case ENodeType::PLAYER:
-        node = new Player(_parent);
+        node = new Player(parent);
         break;
     case ENodeType::WALL:
-        node = new Wall(_parent, true);
+        node = new Wall(parent, true);
         break;
     case ENodeType::STAIRWAY:
-        node = new Stairway(_parent);
+        node = new Stairway(parent);
         break;
     }
     nodes.push_back(node);
+    draw();
 }
 
 void NodeManager::deleteNode(PCNode* node) {

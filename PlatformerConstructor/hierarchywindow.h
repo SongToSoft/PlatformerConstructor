@@ -22,6 +22,7 @@ private:
     void onNodeButtonClick(PCNode* node);
     void deleteNode(PCNode* node);
     void saveNode(PCNode* node);
+    void createNode(ENodeType nodeType);
 
     Ui::HierarchyWindow *ui;
 };

@@ -2,6 +2,7 @@
 #define TRANSFORMCOMPONENT_H
 
 #include "QVector2D"
+#include <QJsonObject>
 
 class TransformComponent {
 public:
@@ -15,6 +16,9 @@ public:
     void setPosition(QVector2D _position);
     void setScale(QVector2D _scale);
     void setSize(QVector2D _size);
+
+    QJsonObject serialize();
+    void deserialize();
 private:
     QVector2D position;
     QVector2D size;
