@@ -32,9 +32,9 @@
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>10</y>
+     <y>50</y>
      <width>441</width>
-     <height>491</height>
+     <height>451</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -173,6 +173,19 @@
    </property>
    <property name="text">
     <string>Create</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="saveAllButton">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>10</y>
+     <width>141</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save all</string>
    </property>
   </widget>
  </widget>

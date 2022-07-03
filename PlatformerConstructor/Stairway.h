@@ -9,6 +9,9 @@ public:
 
     float getClimbSpeed();
     void setClimbSpeed(float _climbSpeed);
+
+    QJsonObject serialize();
+    void deserialize(QJsonObject jsonObject);
 private:
     float climbSpeed;
 };

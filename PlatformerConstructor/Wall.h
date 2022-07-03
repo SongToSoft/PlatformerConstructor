@@ -8,6 +8,9 @@ public:
 
     bool isDestructible();
     void setDestructible(bool _destructible);
+
+    QJsonObject serialize();
+    void deserialize(QJsonObject jsonObject);
 private:
     bool destructible;
 };

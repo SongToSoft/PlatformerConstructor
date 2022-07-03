@@ -4,6 +4,11 @@
 #include <Player.h>
 #include <Wall.h>
 
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QFile>
+#include <QDir>
+
 NodeManager* NodeManager::instance = nullptr;
 QWidget* NodeManager::parent = nullptr;
 
@@ -35,9 +40,36 @@ void NodeManager::createNode(ENodeType _type) {
     case ENodeType::STAIRWAY:
         node = new Stairway(parent);
         break;
+    default:
+        return;
+        break;
     }
     nodes.push_back(node);
     draw();
+}
+
+void NodeManager::createNode(QJsonObject jsonObject) {
+    auto nodeType = (ENodeType)(jsonObject["Type"].toInt());
+    PCNode *node;
+    switch(nodeType) {
+    case ENodeType::PLAYER: {
+        node = new Player(parent);
+        break;
+    }
+    case ENodeType::WALL: {
+        node = new Wall(parent, true);
+        break;
+    }
+    case ENodeType::STAIRWAY: {
+        node = new Stairway(parent);
+        break;
+    }
+    default:
+        return;
+        break;
+    }
+    node->deserialize(jsonObject);
+    nodes.push_back(node);
 }
 
 void NodeManager::deleteNode(PCNode* node) {
@@ -67,6 +99,34 @@ void NodeManager::clear() {
         delete node;
     }
     delete instance;
+}
+
+void NodeManager::serialize() {
+    QJsonArray jsonArray;
+    for (auto const& node : nodes) {
+        jsonArray.push_back(node->serialize());
+    }
+    QJsonDocument jsonDoc;
+    jsonDoc.setArray(jsonArray);
+
+    QFile file("nodes.json");
+    file.open(QIODevice::WriteOnly);
+    file.write(jsonDoc.toJson());
+    file.close();
+}
+
+void NodeManager::deserialize() {
+    QFile file("nodes.json");
+    file.open(QIODevice::ReadOnly);
+
+    QJsonDocument jsonDoc;
+    jsonDoc = QJsonDocument::fromJson(file.readAll());
+    file.close();
+
+    QJsonArray jsonArray = jsonDoc.array();
+    for (auto jsonValue : jsonArray) {
+        createNode(jsonValue.toObject());
+    }
 }
 
 NodeManager::NodeManager() {

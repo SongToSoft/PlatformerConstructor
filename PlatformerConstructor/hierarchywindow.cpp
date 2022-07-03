@@ -34,6 +34,10 @@ HierarchyWindow::HierarchyWindow(QWidget *parent) :
     });
 
     ui->createButton->setMenu(menu);
+    connect(ui->saveAllButton, &QPushButton::clicked, []() {
+        std::cout << "Serialize nodes" << std::endl;
+        NodeManager::getInstance()->serialize();
+    });
 }
 
 void HierarchyWindow::addNodes() {
@@ -72,6 +76,9 @@ void HierarchyWindow::clearNodes() {
 
 void HierarchyWindow::onNodeButtonClick(PCNode* node) {
     std::cout << "Click on button: " << node->getId() << std::endl;
+    if (!node) {
+        return;
+    }
     auto nodes = NodeManager::getInstance()->getNodes();
     for (const auto& item : nodes) {
         item->getSpriteComponent()->highlight(false);
@@ -148,7 +155,7 @@ void HierarchyWindow::saveNode(PCNode* node) {
     node->getTransformComponent()->setScale({ ui->scaleXLineEdit->text().toFloat(),
                                               ui->scaleYLineEdit->text().toFloat()});
 
-    node->getSpriteComponent()->setImage(ui->imagePathLineEdit->text());
+    node->getSpriteComponent()->setImage(ui->imagePathLineEdit->text().toStdString());
 
     switch (node->getNodeType()) {
     case ENodeType::PLAYER: {

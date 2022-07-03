@@ -18,7 +18,7 @@ public:
     void setSize(QVector2D _size);
 
     QJsonObject serialize();
-    void deserialize();
+    void deserialize(QJsonObject jsonObject);
 private:
     QVector2D position;
     QVector2D size;

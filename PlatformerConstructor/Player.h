@@ -9,6 +9,10 @@ public:
 
     float getSpeed();
     void setSpeed(float _speed);
+
+    QJsonObject serialize();
+    void deserialize(QJsonObject jsonObject);
+
 private:
     float speed;
 };

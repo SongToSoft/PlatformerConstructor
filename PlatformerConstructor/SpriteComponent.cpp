@@ -1,4 +1,5 @@
 #include "SpriteComponent.h"
+#include <QJsonObject>
 
 SpriteComponent::SpriteComponent(QWidget *_parent) {
     parent = _parent;
@@ -23,12 +24,6 @@ std::string SpriteComponent::getPath() {
     return path;
 }
 
-void SpriteComponent::setImage(QPixmap _image) {
-    image = _image;
-    label->setPixmap(image);
-    label->setScaledContents(true);
-}
-
 void SpriteComponent::setImage(const std::string& _path) {
     path = _path;
     image = QPixmap(path.c_str());
@@ -42,4 +37,14 @@ void SpriteComponent::highlight(bool _highlight) {
     } else {
         label->setStyleSheet("");
     }
+}
+
+QJsonObject SpriteComponent::serialize() {
+    QJsonObject jsonObject;
+    jsonObject["path"] = path.c_str();
+    return jsonObject;
+}
+
+void SpriteComponent::deserialize(QJsonObject jsonObject) {
+    setImage(jsonObject["path"].toString().toStdString());
 }

@@ -47,15 +47,15 @@ SpriteComponent* PCNode::getSpriteComponent() {
     return spriteComponent;
 }
 
-void PCNode::serialize() {
+QJsonObject PCNode::serialize() {
     QJsonObject jsonObject;
+    jsonObject["Type"] = nodeType;
     jsonObject["TransformComponent"] = transformComponent->serialize();
-
-    //QFile jsonFile("PCNode.json");
-    //jsonFile.open(QFile::WriteOnly);
-    //jsonFile.write(jsonObject);
+    jsonObject["SpriteComponent"] = spriteComponent->serialize();
+    return jsonObject;
 }
 
-void PCNode::deserialize() {
-
+void PCNode::deserialize(QJsonObject jsonObject) {
+    transformComponent->deserialize(jsonObject["TransformComponent"].toObject());
+    spriteComponent->deserialize(jsonObject["SpriteComponent"].toObject());
 }

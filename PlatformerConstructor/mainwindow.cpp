@@ -10,13 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     NodeManager::getInstance()->setParent(this);
-
-    Wall* wall = new Wall(this, false);
-    wall->getTransformComponent()->setPosition({250, 200});
-    NodeManager::getInstance()->addNode(wall);
-    NodeManager::getInstance()->createNode(ENodeType::WALL);
-    NodeManager::getInstance()->createNode(ENodeType::PLAYER);
-    NodeManager::getInstance()->createNode(ENodeType::STAIRWAY);
+    NodeManager::getInstance()->deserialize();
+    NodeManager::getInstance()->draw();
 }
 
 MainWindow::~MainWindow() {

@@ -51,6 +51,7 @@ public:
     QPushButton *deleteButton;
     QPushButton *saveButton;
     QPushButton *createButton;
+    QPushButton *saveAllButton;
 
     void setupUi(QDialog *HierarchyWindow)
     {
@@ -66,7 +67,7 @@ public:
         HierarchyLayout->setContentsMargins(0, 0, 0, 0);
         layoutWidget1 = new QWidget(HierarchyWindow);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(200, 10, 441, 491));
+        layoutWidget1->setGeometry(QRect(200, 50, 441, 451));
         formLayout = new QFormLayout(layoutWidget1);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
@@ -183,6 +184,9 @@ public:
         createButton = new QPushButton(HierarchyWindow);
         createButton->setObjectName(QString::fromUtf8("createButton"));
         createButton->setGeometry(QRect(40, 10, 141, 29));
+        saveAllButton = new QPushButton(HierarchyWindow);
+        saveAllButton->setObjectName(QString::fromUtf8("saveAllButton"));
+        saveAllButton->setGeometry(QRect(200, 10, 141, 29));
 
         retranslateUi(HierarchyWindow);
 
@@ -207,6 +211,7 @@ public:
         deleteButton->setText(QCoreApplication::translate("HierarchyWindow", "Delete", nullptr));
         saveButton->setText(QCoreApplication::translate("HierarchyWindow", "Save", nullptr));
         createButton->setText(QCoreApplication::translate("HierarchyWindow", "Create", nullptr));
+        saveAllButton->setText(QCoreApplication::translate("HierarchyWindow", "Save all", nullptr));
     } // retranslateUi
 
 };

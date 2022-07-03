@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.2, 2022-07-03T11:00:04. -->
+<!-- Written by QtCreator 7.0.2, 2022-07-03T21:55:42. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -151,10 +151,23 @@
       <valuelist type="QVariantList" key="QtProjectManager.QMakeBuildStep.SelectedAbis"/>
      </valuemap>
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
-      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">false</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.MakeStep</value>
      </valuemap>
-     <value type="qlonglong" key="ProjectExplorer.BuildStepList.StepsCount">2</value>
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.2">
+      <value type="QString" key="IncrediBuild.BuildConsole.CMakeCommandBuilder.Arguments"></value>
+      <value type="QString" key="IncrediBuild.BuildConsole.CMakeCommandBuilder.Command"></value>
+      <value type="QString" key="IncrediBuild.BuildConsole.CommandBuilder">CMakeCommandBuilder</value>
+      <value type="QString" key="IncrediBuild.BuildConsole.CustomCommandBuilder.Arguments"></value>
+      <value type="QString" key="IncrediBuild.BuildConsole.CustomCommandBuilder.Command"></value>
+      <value type="QString" key="IncrediBuild.BuildConsole.MakeCommandBuilder.Arguments"></value>
+      <value type="QString" key="IncrediBuild.BuildConsole.MakeCommandBuilder.Command"></value>
+      <value type="QString" key="IncrediBuild.BuildStep.Type">IncrediBuild.BuildStep.BuildConsole</value>
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">IncrediBuild for Windows</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">IncrediBuild.BuildStep.BuildConsole</value>
+     </valuemap>
+     <value type="qlonglong" key="ProjectExplorer.BuildStepList.StepsCount">3</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Сборка</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Сборка</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.BuildSteps.Build</value>

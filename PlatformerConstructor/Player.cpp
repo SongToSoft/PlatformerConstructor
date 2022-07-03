@@ -16,3 +16,14 @@ float Player::getSpeed() {
 void Player::setSpeed(float _speed) {
     speed = _speed;
 }
+
+QJsonObject Player::serialize() {
+    QJsonObject jsonObject = PCNode::serialize();
+    jsonObject["speed"] = speed;
+    return jsonObject;
+}
+
+void Player::deserialize(QJsonObject jsonObject) {
+    PCNode::deserialize(jsonObject);
+    speed = (float)jsonObject["speed"].toDouble();
+}

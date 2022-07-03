@@ -24,8 +24,8 @@ public:
     TransformComponent* getTransformComponent();
     SpriteComponent* getSpriteComponent();
 
-    void serialize();
-    void deserialize();
+    virtual QJsonObject serialize();
+    virtual void deserialize(QJsonObject jsonObject);
 protected:
     std::string id;
     ENodeType nodeType;

@@ -16,3 +16,14 @@ float Stairway::getClimbSpeed() {
 void Stairway::setClimbSpeed(float _climbSpeed) {
     climbSpeed = _climbSpeed;
 }
+
+QJsonObject Stairway::serialize() {
+    QJsonObject jsonObject = PCNode::serialize();
+    jsonObject["climbSpeed"] = climbSpeed;
+    return jsonObject;
+}
+
+void Stairway::deserialize(QJsonObject jsonObject) {
+    PCNode::deserialize(jsonObject);
+    climbSpeed = (float)jsonObject["climbSpeed"].toDouble();
+}

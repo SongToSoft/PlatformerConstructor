@@ -34,18 +34,20 @@ void TransformComponent::setSize(QVector2D _size) {
 }
 
 QJsonObject TransformComponent::serialize() {
-    QJsonObject json;
-    json["positionX"] = position.x();
-    json["positionY"] = position.y();
+    QJsonObject jsonObject;
+    jsonObject["positionX"] = position.x();
+    jsonObject["positionY"] = position.y();
 
-    json["sizeX"] = size.x();
-    json["sizeY"] = size.y();
+    jsonObject["sizeX"] = size.x();
+    jsonObject["sizeY"] = size.y();
 
-    json["scaleX"] = scale.x();
-    json["scaleY"] = scale.y();
-    return json;
+    jsonObject["scaleX"] = scale.x();
+    jsonObject["scaleY"] = scale.y();
+    return jsonObject;
 }
 
-void TransformComponent::deserialize() {
-
+void TransformComponent::deserialize(QJsonObject jsonObject) {
+     position = {(float)jsonObject["positionX"].toDouble(), (float)jsonObject["positionY"].toDouble()};
+     size = {(float)jsonObject["sizeX"].toDouble(), (float)jsonObject["sizeY"].toDouble()};
+     scale = {(float)jsonObject["scaleX"].toDouble(), (float)jsonObject["scaleY"].toDouble()};
 }

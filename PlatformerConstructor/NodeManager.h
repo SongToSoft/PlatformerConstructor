@@ -10,12 +10,16 @@ public:
 
     void addNode(PCNode* _node);
     void createNode(ENodeType _type);
+    void createNode(QJsonObject jsonObject);
     void deleteNode(PCNode* node);
     std::vector<PCNode*> getNodes();
 
     void update();
     void draw();
     void clear();
+
+    void serialize();
+    void deserialize();
 private:
     NodeManager();
     ~NodeManager();
