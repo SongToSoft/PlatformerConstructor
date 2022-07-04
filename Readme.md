@@ -4,9 +4,9 @@
 В первом отображается список предметов на сцене, при клике на него можно увидеть его параметры, а так же изменить их.
 В данном окне присутствует возможность создать новый объект или удалить уже созданный.
 При клике на кноку Save All все изменения сериализуются и записываются в файл nodes.json, что бы при перезапуске программы изменения внесенные ранее сохранились.
-![example](https://github.com/TakingAway/PlatformerConstructor/tree/master/Screens/hierarchy screen.png)
+![screen](https://github.com/SongToSoft/PlatformerConstructor/blob/main/Screens/hierarchy%20screen.png)
 Во втором окне присутствует схематичное отображение игровых объектов. Это окно создано для того, что бы наглядней показать изменения, внесенные в окне Hierarchy.
-![example](https://github.com/TakingAway/PlatformerConstructor/tree/master/Screens/game screen.png)
+![screen](https://github.com/SongToSoft/PlatformerConstructor/blob/main/Screens/game%20screen.png)
 
 Для того, что бы можно было собрать проект без среды разработки Qt, я добавил отдельную папку build, где лежит .exe файл и все необхдимые библиотеки для запуска приложения.
 
