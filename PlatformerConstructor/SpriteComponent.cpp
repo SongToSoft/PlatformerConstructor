@@ -5,6 +5,7 @@ SpriteComponent::SpriteComponent(QWidget *_parent) {
     parent = _parent;
     path = "";
     label = new QLabel(parent);
+    label->setScaledContents(true);
     label->show();
 }
 
@@ -28,7 +29,6 @@ void SpriteComponent::setImage(const std::string& _path) {
     path = _path;
     image = QPixmap(path.c_str());
     label->setPixmap(image);
-    label->setScaledContents(true);
 }
 
 void SpriteComponent::highlight(bool _highlight) {

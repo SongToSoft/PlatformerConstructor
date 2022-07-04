@@ -1,8 +1,13 @@
 #include <TransformComponent.h>
 
+#define DEFAULT_POSITIOn {0, 0}
+#define DEFAULT_SCALE {1, 1}
+#define DEFAULT_SIZE {50, 50}
+
 TransformComponent::TransformComponent() {
-    position = {0, 0};
-    scale = {1, 1};
+    position = DEFAULT_POSITIOn;
+    scale = DEFAULT_SCALE;
+    size = DEFAULT_SIZE;
 }
 
 TransformComponent::~TransformComponent() {

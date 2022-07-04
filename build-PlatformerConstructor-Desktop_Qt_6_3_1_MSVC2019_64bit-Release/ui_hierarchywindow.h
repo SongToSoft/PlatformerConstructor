@@ -52,22 +52,23 @@ public:
     QPushButton *saveButton;
     QPushButton *createButton;
     QPushButton *saveAllButton;
+    QLabel *spriteComponentImage;
 
     void setupUi(QDialog *HierarchyWindow)
     {
         if (HierarchyWindow->objectName().isEmpty())
             HierarchyWindow->setObjectName(QString::fromUtf8("HierarchyWindow"));
-        HierarchyWindow->resize(701, 528);
+        HierarchyWindow->resize(701, 628);
         layoutWidget = new QWidget(HierarchyWindow);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(40, 50, 141, 451));
+        layoutWidget->setGeometry(QRect(40, 50, 141, 531));
         HierarchyLayout = new QVBoxLayout(layoutWidget);
         HierarchyLayout->setSpacing(2);
         HierarchyLayout->setObjectName(QString::fromUtf8("HierarchyLayout"));
         HierarchyLayout->setContentsMargins(0, 0, 0, 0);
         layoutWidget1 = new QWidget(HierarchyWindow);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(200, 50, 441, 451));
+        layoutWidget1->setGeometry(QRect(200, 80, 441, 501));
         InspectorLayout = new QFormLayout(layoutWidget1);
         InspectorLayout->setObjectName(QString::fromUtf8("InspectorLayout"));
         InspectorLayout->setContentsMargins(0, 0, 0, 0);
@@ -174,12 +175,12 @@ public:
         deleteButton = new QPushButton(layoutWidget1);
         deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
 
-        InspectorLayout->setWidget(15, QFormLayout::LabelRole, deleteButton);
+        InspectorLayout->setWidget(16, QFormLayout::LabelRole, deleteButton);
 
         saveButton = new QPushButton(layoutWidget1);
         saveButton->setObjectName(QString::fromUtf8("saveButton"));
 
-        InspectorLayout->setWidget(15, QFormLayout::FieldRole, saveButton);
+        InspectorLayout->setWidget(16, QFormLayout::FieldRole, saveButton);
 
         createButton = new QPushButton(HierarchyWindow);
         createButton->setObjectName(QString::fromUtf8("createButton"));
@@ -187,6 +188,16 @@ public:
         saveAllButton = new QPushButton(HierarchyWindow);
         saveAllButton->setObjectName(QString::fromUtf8("saveAllButton"));
         saveAllButton->setGeometry(QRect(200, 10, 141, 29));
+        spriteComponentImage = new QLabel(HierarchyWindow);
+        spriteComponentImage->setObjectName(QString::fromUtf8("spriteComponentImage"));
+        spriteComponentImage->setEnabled(true);
+        spriteComponentImage->setGeometry(QRect(550, 30, 75, 75));
+        spriteComponentImage->setBaseSize(QSize(75, 75));
+        spriteComponentImage->setCursor(QCursor(Qt::ArrowCursor));
+        spriteComponentImage->setMouseTracking(false);
+        spriteComponentImage->setFrameShape(QFrame::Box);
+        spriteComponentImage->setFrameShadow(QFrame::Sunken);
+        spriteComponentImage->setMidLineWidth(1);
 
         retranslateUi(HierarchyWindow);
 
@@ -212,6 +223,7 @@ public:
         saveButton->setText(QCoreApplication::translate("HierarchyWindow", "Save", nullptr));
         createButton->setText(QCoreApplication::translate("HierarchyWindow", "Create", nullptr));
         saveAllButton->setText(QCoreApplication::translate("HierarchyWindow", "Save all", nullptr));
+        spriteComponentImage->setText(QString());
     } // retranslateUi
 
 };

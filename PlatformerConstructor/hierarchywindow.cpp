@@ -43,6 +43,8 @@ HierarchyWindow::HierarchyWindow(QWidget *parent) :
         std::cout << "Serialize nodes" << std::endl;
         NodeManager::getInstance()->serialize();
     });
+
+    ui->spriteComponentImage->setScaledContents(true);
 }
 
 void HierarchyWindow::addNodes() {
@@ -74,6 +76,7 @@ void HierarchyWindow::clearNodes() {
     ui->scaleYLineEdit->setText(0);
 
     ui->imagePathLineEdit->setText(0);
+    ui->spriteComponentImage->clear();
 
     ui->specialParameterLabel->setText("SpecialParameter");
     ui->specialParameterLineEdit->setText(0);
@@ -103,6 +106,8 @@ void HierarchyWindow::onNodeButtonClick(PCNode* node) {
     ui->scaleYLineEdit->setText(std::to_string(node->getTransformComponent()->getScale().y()).c_str());
 
     ui->imagePathLineEdit->setText(node->getSpriteComponent()->getPath().c_str());
+    auto image = QPixmap(node->getSpriteComponent()->getPath().c_str());
+    ui->spriteComponentImage->setPixmap(image);
 
     switch (node->getNodeType()) {
     case ENodeType::PLAYER: {
@@ -206,6 +211,9 @@ void HierarchyWindow::saveNode(PCNode* node) {
     }
 
     NodeManager::getInstance()->draw();
+
+    auto image = QPixmap(node->getSpriteComponent()->getPath().c_str());
+    ui->spriteComponentImage->setPixmap(image);
 }
 
 void HierarchyWindow::createNode(ENodeType nodeType) {
