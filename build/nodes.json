@@ -163,5 +163,35 @@
         },
         "Type": 3,
         "climbSpeed": 3
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/obstacle.png"
+        },
+        "TransformComponent": {
+            "positionX": 275,
+            "positionY": 175,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 25,
+            "sizeY": 25
+        },
+        "Type": 4,
+        "damage": 5
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/obstacle.png"
+        },
+        "TransformComponent": {
+            "positionX": 100,
+            "positionY": 175,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 25,
+            "sizeY": 25
+        },
+        "Type": 4,
+        "damage": 1
     }
 ]

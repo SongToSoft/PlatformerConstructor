@@ -8,7 +8,8 @@ enum ENodeType {
     NODE,
     PLAYER,
     WALL,
-    STAIRWAY
+    STAIRWAY,
+    OBSTACLE
 };
 
 class PCNode {

@@ -3,6 +3,7 @@
 #include <Stairway.h>
 #include <Player.h>
 #include <Wall.h>
+#include <Obstacle.h>
 
 #include <QJsonDocument>
 #include <QJsonArray>
@@ -40,6 +41,9 @@ void NodeManager::createNode(ENodeType _type) {
     case ENodeType::STAIRWAY:
         node = new Stairway(parent);
         break;
+    case ENodeType::OBSTACLE:
+        node = new Obstacle(parent);
+        break;
     default:
         return;
         break;
@@ -64,6 +68,10 @@ void NodeManager::createNode(QJsonObject jsonObject) {
         node = new Stairway(parent);
         break;
     }
+    case ENodeType::OBSTACLE: {
+        node = new Obstacle(parent);
+        break;
+    }
     default:
         return;
         break;
@@ -74,8 +82,10 @@ void NodeManager::createNode(QJsonObject jsonObject) {
 
 void NodeManager::deleteNode(PCNode* node) {
     std::cout << "NodeManager::deleteNode: " << node->getId() << std::endl;
-    nodes.erase(std::remove(nodes.begin(), nodes.end(), node), nodes.end());
-    delete node;
+    if (node) {
+        nodes.erase(std::remove(nodes.begin(), nodes.end(), node), nodes.end());
+        delete node;
+    }
 }
 
 std::vector<PCNode*> NodeManager::getNodes() {

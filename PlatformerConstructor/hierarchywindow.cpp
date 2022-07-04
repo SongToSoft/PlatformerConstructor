@@ -9,6 +9,7 @@
 #include <Player.h>
 #include <Wall.h>
 #include <Stairway.h>
+#include <Obstacle.h>
 
 HierarchyWindow::HierarchyWindow(QWidget *parent) :
     QDialog(parent),
@@ -31,6 +32,10 @@ HierarchyWindow::HierarchyWindow(QWidget *parent) :
     menu->addAction("Add Stairway", [this]() {
         std::cout << "Add Stairway" << std::endl;
         createNode(ENodeType::STAIRWAY);
+    });
+    menu->addAction("Add Obstacle", [this]() {
+        std::cout << "Add Obstacle" << std::endl;
+        createNode(ENodeType::OBSTACLE);
     });
 
     ui->createButton->setMenu(menu);
@@ -72,6 +77,7 @@ void HierarchyWindow::clearNodes() {
 
     ui->specialParameterLabel->setText("SpecialParameter");
     ui->specialParameterLineEdit->setText(0);
+    disconnect(ui->deleteButton, 0, 0, 0);
 }
 
 void HierarchyWindow::onNodeButtonClick(PCNode* node) {
@@ -120,6 +126,13 @@ void HierarchyWindow::onNodeButtonClick(PCNode* node) {
         }
         break;
     }
+    case ENodeType::OBSTACLE: {
+        if (auto obstacle = (dynamic_cast<Obstacle*>(node))) {
+            ui->specialParameterLabel->setText("Damage");
+            ui->specialParameterLineEdit->setText(std::to_string(obstacle->getDamage()).c_str());
+        }
+        break;
+    }
     default:
         break;
     }
@@ -137,6 +150,9 @@ void HierarchyWindow::onNodeButtonClick(PCNode* node) {
 
 void HierarchyWindow::deleteNode(PCNode* node) {
     std::cout << "Delete node: " << node->getId() << std::endl;
+    if (!node) {
+        return;
+    }
     NodeManager::getInstance()->deleteNode(node);
 
     clearNodes();
@@ -146,6 +162,9 @@ void HierarchyWindow::deleteNode(PCNode* node) {
 
 void HierarchyWindow::saveNode(PCNode* node) {
     std::cout << "Save node: " << node->getId() << std::endl;
+    if (!node) {
+        return;
+    }
     node->getTransformComponent()->setPosition({ ui->positionXLineEdit->text().toFloat(),
                                                  ui->positionYLineEdit->text().toFloat()});
 
@@ -173,6 +192,12 @@ void HierarchyWindow::saveNode(PCNode* node) {
     case ENodeType::STAIRWAY: {
         if (auto stairway = (dynamic_cast<Stairway*>(node))) {
             stairway->setClimbSpeed(ui->specialParameterLineEdit->text().toFloat());
+        }
+        break;
+    }
+    case ENodeType::OBSTACLE: {
+        if (auto obstacle = (dynamic_cast<Obstacle*>(node))) {
+            obstacle->setDamage(ui->specialParameterLineEdit->text().toFloat());
         }
         break;
     }

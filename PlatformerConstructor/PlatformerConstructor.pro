@@ -11,6 +11,7 @@ CONFIG += static
 
 SOURCES += \
     NodeManager.cpp \
+    Obstacle.cpp \
     PCNode.cpp \
     Player.cpp \
     SpriteComponent.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
 
 HEADERS += \
     NodeManager.h \
+    Obstacle.h \
     PCNode.h \
     Player.h \
     SpriteComponent.h \
