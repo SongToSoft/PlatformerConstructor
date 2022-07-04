@@ -37,7 +37,7 @@
      <height>451</height>
     </rect>
    </property>
-   <layout class="QFormLayout" name="formLayout">
+   <layout class="QFormLayout" name="InspectorLayout">
     <item row="0" column="0" colspan="2">
      <widget class="QLabel" name="NodeNameLabel">
       <property name="text">

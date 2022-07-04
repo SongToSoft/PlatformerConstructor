@@ -1,0 +1,167 @@
+[
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/stoneWall.jpg"
+        },
+        "TransformComponent": {
+            "positionX": 100,
+            "positionY": 200,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 2,
+        "destructible": false
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/brickWall.jpg"
+        },
+        "TransformComponent": {
+            "positionX": 150,
+            "positionY": 200,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 2,
+        "destructible": true
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/player.png"
+        },
+        "TransformComponent": {
+            "positionX": 100,
+            "positionY": 250,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 1,
+        "speed": 2.5
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/stairway.png"
+        },
+        "TransformComponent": {
+            "positionX": 200,
+            "positionY": 250,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 3,
+        "climbSpeed": 3
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/stoneWall.jpg"
+        },
+        "TransformComponent": {
+            "positionX": 250,
+            "positionY": 200,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 2,
+        "destructible": false
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/brickWall.jpg"
+        },
+        "TransformComponent": {
+            "positionX": 100,
+            "positionY": 300,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 2,
+        "destructible": true
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/brickWall.jpg"
+        },
+        "TransformComponent": {
+            "positionX": 150,
+            "positionY": 300,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 2,
+        "destructible": true
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/stoneWall.jpg"
+        },
+        "TransformComponent": {
+            "positionX": 200,
+            "positionY": 300,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 2,
+        "destructible": false
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/brickWall.jpg"
+        },
+        "TransformComponent": {
+            "positionX": 250,
+            "positionY": 300,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 2,
+        "destructible": true
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/stairway.png"
+        },
+        "TransformComponent": {
+            "positionX": 150,
+            "positionY": 150,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 3,
+        "climbSpeed": 2
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/stairway.png"
+        },
+        "TransformComponent": {
+            "positionX": 200,
+            "positionY": 200,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 3,
+        "climbSpeed": 3
+    }
+]
