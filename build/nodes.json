@@ -193,5 +193,35 @@
         },
         "Type": 4,
         "damage": 1
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/stairway.png"
+        },
+        "TransformComponent": {
+            "positionX": 150,
+            "positionY": 100,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 3,
+        "climbSpeed": 2
+    },
+    {
+        "SpriteComponent": {
+            "path": "../Sprites/stairway.png"
+        },
+        "TransformComponent": {
+            "positionX": 150,
+            "positionY": 50,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sizeX": 50,
+            "sizeY": 50
+        },
+        "Type": 3,
+        "climbSpeed": 2
     }
 ]
