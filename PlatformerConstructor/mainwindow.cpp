@@ -15,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 MainWindow::~MainWindow() {
-    NodeManager::getInstance()->clear();
     delete ui;
 }
 

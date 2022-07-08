@@ -223,5 +223,6 @@ void HierarchyWindow::createNode(ENodeType nodeType) {
 }
 
 HierarchyWindow::~HierarchyWindow() {
+    NodeManager::getInstance()->clear();
     delete ui;
 }
