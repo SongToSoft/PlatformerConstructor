@@ -7,6 +7,3 @@
 ![screen](https://github.com/SongToSoft/PlatformerConstructor/blob/main/Screens/hierarchy%20screen.png)
 Во втором окне присутствует схематичное отображение игровых объектов. Это окно создано для того, что бы наглядней показать изменения, внесенные в окне Hierarchy.
 ![screen](https://github.com/SongToSoft/PlatformerConstructor/blob/main/Screens/game%20screen.png)
-
-Для того, что бы можно было запустить проект без среды разработки Qt, я добавил отдельную папку build, где лежит .exe файл и все необходимые библиотеки для запуска приложения.
-
